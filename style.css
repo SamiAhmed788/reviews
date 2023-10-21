@@ -1,0 +1,15 @@
+#data{
+   text-align: center;
+border: solid 2px black;
+margin-top: 350px;
+width: 600px;
+margin: 350px  auto;
+
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+body{
+    background-color: aquamarine;
+}
