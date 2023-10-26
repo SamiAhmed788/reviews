@@ -1,76 +1,44 @@
-const imj = document.querySelector('#check');
-const naam = document.querySelector("#name");
-const des = document.querySelector('#designation');
-const para = document.querySelector('#description');
-
-console.log(imj)
-let peoples = [
-  {
-
-  imgsrc :"asseets/R.jpeg",
-
-name:"sami",
-designation : 'developer',
-description : 'start new journey of its developing more website foe gaining experience',
-  },
-  {
-    imgsrc : "asseets/jetthalal.jpg",
-    name:"d",
-    designation : 'developer',
-    description : "start new journey of its developing more website foe gaining experience"
-  },
-  {
-    imgsrc : "asseets/hqdefault.jpg",
-    name:"sami",
-    designation : 'developer',
-    description : "start new journey of its developing more website foe gaining experience"
-  },
-  {
-    imgsrc : "asseets/OIP.jpeg",
-    name:"sami",
-    designation : 'developer',
-    description : "start new journey of its developing more website foe gaining experience"
-  },
-  {
-    imgsrc: "asseets/Fy4lZS7X0AIpvRB.jpg",
-    name:"sami",
-    designation : 'developer',
-    description : "start new journey of its developing more website foe gaining experience"
-  },
+let slideIndex = 0
+let slideItem = [
+    { img: 'asseets/jetthalal.jpg', name: 'jethallal', designation : 'Actor', description : '"Jethalal Champaklal Gada is a resident of the Gokuldham society. He is not very tall, overweight, illiterate, and has a small moustache. Though he is an honest businessman, an ideal son, a perfect husband, and a caring father, Jethalal is quite careless and lazy (evident by the fact that he is a late riser). He is a foodie and loves to"' },
+    { img: 'asseets/R.jpeg', name: 'popatlal', designation: 'Reporter', description: 'Popatlal’s role is of a reporter, of the newspaper called Toofan Express. His Character is seen, as always searching for a bride because he is unmarried. He is always seen carry"' },
+    { img: 'asseets/hqdefault.jpg', name: '321 pilay', designation: 'ticktoker', description: 'fazool bnda ha but log pata nhi q lik ekrty hai isy' },
+    { img: 'asseets/OIP.jpeg', name: 'paresh rawal', designation: 'Actor ', description: ' Paresh Rawal is an Indian actor, comedian, film producer and politician known for his works primarily in Hindi films. He has appeared in over 240 films and is the recipient of various accola…'}
 ]
-let check = false
-let number = 0
 
-let item = peoples[number]
+let slideImg = document.querySelector('#slideImg')
+let slideName = document.querySelector('#name')
+let slideDesignation = document.querySelector('#designation')
+let slideDec = document.querySelector('#description')
 
-function showperson(peoples) {
-  imj.src = peoples.imgsrc
-naam.textContent = peoples.name;
-des.textContent = peoples.designation
-para.textContent = peoples.description;
+const prevBtn = document.querySelector('#prevBtn')
+const nextBtn = document.querySelector('#nextvBtn')
 
 
 
+
+slideImg.src = slideItem[slideIndex].img
+slideName.textContent = slideItem[slideIndex].name
+slideDesignation.textContent = slideItem[slideIndex].designation
+slideDec.textContent = slideItem[slideIndex].description
+
+
+function nextHandler() {
+    if (slideIndex < slideItem.length - 1) {
+        slideIndex++
+        slideImg.src = slideItem[slideIndex].img
+        slideName.textContent = slideItem[slideIndex].name
+        slideDesignation.textContent = slideItem[slideIndex].designation
+        slideDec.textContent = slideItem[slideIndex].description
+    }
 }
-showperson(item)
 
-function forward() {
-
-  if (item === peoples.lenght - 1){
-    return check 
-  }else{
-    number = 0
-
-  }
-showperson(item)
-}
-
-function backward() {
-   
-  if (item == peoples.lenght - 1) {
-    
-  } 
-  number--;
-  item = peoples[number]
-showperson(item)
+function prevHandler() {
+    if (slideIndex > 0) {
+        slideIndex--
+        slideImg.src = slideItem[slideIndex].img
+        slideName.textContent = slideItem[slideIndex].name
+        slideDesignation.textContent = slideItem[slideIndex].designation
+        slideDec.textContent = slideItem[slideIndex].description
+    }
 }
